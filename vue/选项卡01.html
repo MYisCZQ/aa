@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+            body {
+                margin: 0;
+                background: lightblue;
+            }
+    
+            li {
+                list-style: none;
+            }
+    
+            .tab-content {
+                width: 400px;
+                margin: 100px auto;
+                color: white;
+            }
+    
+            .tab-content .tab-controls li {
+                width: 25%;
+                float: left;
+                line-height: 50px;
+                text-align: center;
+                background: red;
+            }
+    
+            .tab-content .tab-controls li.active {
+                background: rgb(10, 133, 10);
+            }
+    
+            .tab-content .tab-items li {
+                text-align: center;
+                line-height: 200px;
+                display: none;
+            }
+    
+            .tab-content .tab-items li.active {
+                background: rgb(10, 133, 10);
+                display: block;
+            }
+        </style>
+</head>
+<body>  <div id="app">
+        <div class="tab-content">
+                <div class="tab-controls">
+                    <li :class="{active:activIndex===0}" @click="make(0)">London</li>
+                    <li :class="{active:activIndex===1}" @click="make(1)">Paris</li>
+                    <li :class="{active:activIndex===2}" @click="make(2)">Tokyo</li>
+                    <li :class="{active:activIndex===3}" @click="make(3)">Oslo</li>
+                </div>
+                <div class="tab-items">
+                    <li :class="{active:activIndex===0}">London is the capital city of England.</li>
+                    <li :class="{active:activIndex===1}">Paris is the capital of France.</li>
+                    <li :class="{active:activIndex===2}">Tokyo is the capital of Japan.</li>
+                    <li :class="{active:activIndex===3}">Oslo is the capital of Norway.</li>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var app=new Vue({
+                el:'#app',
+                data:{
+                     activIndex:0
+                },
+
+                methods:{
+                    make:function(index){
+                          this.activIndex=index
+                    }
+                }
+
+            })
+        </script>
+</body>
+</html>
